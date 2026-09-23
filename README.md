@@ -166,8 +166,4 @@ This project is open source under the [MIT License](LICENSE).
   Built with passion by <strong>Mahak</strong> — Frontend Developer from Lahore 🇵🇰<br/>
   <em>Engineering pixel-perfect front-end interfaces that drive conversions.</em>
 </p>
-EOF
-echo "Done!"
-Output
 
-Done!
