@@ -13,7 +13,7 @@ const PACKAGES = [
     icon: Rocket,
     title: "Custom Front-End Engineering",
     tagline: "High-performance modular development.",
-    price: "$350+",
+    price: "\$350+",
     timeline: "3–5 Days",
     desc: "Translating highly complex Figma, Adobe XD, or custom product blueprints into production-ready, bulletproof responsive layouts. Every build utilizes clean code metrics, semantic HTML structures, and reusable framework components designed to support fast-scaling product platforms.",
     features: [
@@ -30,7 +30,7 @@ const PACKAGES = [
     icon: ShoppingBag,
     title: "E-Commerce Storefronts & Portals",
     tagline: "Conversion-optimized user experiences.",
-    price: "$600+",
+    price: "\$600+",
     timeline: "7–10 Days",
     desc: "Developing lightning-fast digital storefronts and responsive application dashboards built around the user path. By integrating fluid filtering logic, reactive state behaviors, and interactive dynamic components, I eliminate layout bottlenecks and optimize user retention metrics.",
     features: [
@@ -47,7 +47,7 @@ const PACKAGES = [
     icon: Gauge,
     title: "Performance & Re-Architecture",
     tagline: "Eliminating high bounce rates.",
-    price: "$900+",
+    price: "\$900+",
     timeline: "10–14 Days",
     desc: "Re-engineering outdated, slow, or broken template-based web environments. I specialize in asset bundle optimization, restructuring layout grids for layout-shift prevention, and maximizing overall rendering velocities to push Google PageSpeed benchmarks to 95+.",
     features: [
@@ -178,51 +178,44 @@ export default function Services() {
 
                   {/* Features */}
                   <ul className="mt-6 space-y-3 border-t border-zinc-900 pt-6">
-                    {pack.features.map((feat) => (
-                      <li key={feat} className="flex items-start gap-2.5 text-xs text-zinc-300 md:text-sm">
-                        <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-cyan-500" strokeWidth={2.5} />
+                    {pack.features.map((feat, index) => (
+                      <li key={index} className="flex items-start gap-2.5 text-xs text-zinc-400">
+                        <Check className="h-4 w-4 shrink-0 text-cyan-400 mt-0.5" />
                         <span>{feat}</span>
                       </li>
                     ))}
                   </ul>
-                </div>
 
-                {/* CTA */}
-                <div className="relative pt-8">
-                  <a
-                    href="#contact"
-                    className="group/cta flex w-full items-center justify-center gap-2 rounded-xl border border-[#00d9ff]/30 bg-[#00d9ff]/[0.06] py-3.5 font-mono text-xs font-bold uppercase tracking-wider text-cyan-200 transition-all duration-300 hover:border-[#00d9ff] hover:bg-[#00d9ff] hover:text-black hover:shadow-[0_0_35px_rgba(0,217,255,0.4)]"
-                  >
+                  {/* CTA Button */}
+                  <button className={`mt-8 flex w-full items-center justify-center gap-2 rounded-xl py-3.5 text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
+                    pack.featured
+                      ? "bg-cyan-400 text-black hover:bg-cyan-300 shadow-[0_0_20px_rgba(0,217,255,0.2)]"
+                      : "bg-zinc-900 text-white hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700"
+                  }`}>
                     {pack.cta}
-                    <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover/cta:translate-x-0.5 group-hover/cta:-translate-y-0.5" />
-                  </a>
+                    <ArrowUpRight className="h-4 w-4" />
+                  </button>
                 </div>
               </div>
             );
           })}
         </div>
 
-        {/* ── Guarantees strip ── */}
-        <div className="mt-12 flex flex-wrap items-center justify-between gap-6 rounded-2xl border border-[#00d9ff]/12 bg-white/[0.02] px-8 py-6">
-          {GUARANTEES.map(({ icon: Icon, label }) => (
-            <div key={label} className="flex items-center gap-3">
-              <Icon className="h-4 w-4 text-cyan-500" strokeWidth={1.5} />
-              <span className="mono text-[11px] uppercase tracking-wider text-zinc-400">
-                {label}
-              </span>
-            </div>
-          ))}
-          <a
-            href="#contact"
-            className="mono group flex items-center gap-2 text-[11px] uppercase tracking-wider text-white"
-          >
-            Have a custom scope?
-            <span className="border-b border-[#00d9ff]/50 pb-0.5 text-cyan-300 transition-colors group-hover:border-cyan-300">
-              Let's negotiate
-            </span>
-            <ArrowUpRight className="h-3.5 w-3.5 text-cyan-400" />
-          </a>
+        {/* ── Guarantees Bar ── */}
+        <div className="mt-16 flex flex-col gap-6 rounded-2xl border border-zinc-900 bg-[#06090d] p-6 sm:flex-row sm:items-center sm:justify-around">
+          {GUARANTEES.map((guar, index) => {
+            const GIcon = guar.icon;
+            return (
+              <div key={index} className="flex items-center gap-3">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-zinc-950 text-cyan-400 border border-zinc-800">
+                  <GIcon className="h-4 w-4" />
+                </div>
+                <span className="text-xs font-medium tracking-wide text-zinc-400">{guar.label}</span>
+              </div>
+            );
+          })}
         </div>
+
       </div>
     </section>
   );

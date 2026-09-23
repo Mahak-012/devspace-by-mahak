@@ -445,7 +445,7 @@ function Hero() {
       />
 
       {/* ═══════════ CONTENT ═══════════ */}
-      <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-12 items-center relative z-10">
+      <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-10 lg:gap-12 items-center relative z-10">
 
         {/* ═══════════ LEFT — STUDIO COPY ═══════════ */}
         <div className="flex flex-col items-start space-y-4 md:space-y-6">
@@ -537,7 +537,7 @@ function Hero() {
         <div className="flex justify-center items-center pt-10 pb-4 lg:pt-0 lg:pb-0 animate-entrance" style={{ animationDelay: "0.3s" }}>
           <div
             ref={frameRef}
-            className="tilt-frame relative w-[90vw] max-w-[380px] sm:w-[520px] md:w-[640px] lg:w-[720px] xl:w-[820px] 2xl:w-[900px] aspect-square mx-auto"
+            className="tilt-frame relative w-[85vw] max-w-[300px] sm:max-w-[340px] md:max-w-[400px] lg:max-w-[450px] xl:max-w-[500px] aspect-square mx-auto"
           >
             {/* Breathing glow */}
             <div
@@ -579,7 +579,7 @@ function Hero() {
                 <img
                   src="/images/mahak-hero.png"
                   alt="Mahak — Web Developer"
-                  className="w-full h-full object-cover object-center transform scale-105"
+                  className="w-full h-full object-cover object-center"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#04070c]/90 via-transparent to-black/10 pointer-events-none" />
 

@@ -19,7 +19,6 @@ export default function Navbar() {
   const [progress, setProgress] = useState(0);
   const [activeId, setActiveId] = useState("home");
   const [open, setOpen] = useState(false);
-  const [logoOk, setLogoOk] = useState(true);
 
   /* Scroll: shrink + progress + scroll-spy */
   useEffect(() => {
@@ -81,30 +80,35 @@ export default function Navbar() {
         />
 
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          {/* ── LOGO ── */}
+          {/* ── LOGO (M monogram, polished) ── */}
           <a
             href="#home"
             onClick={(e) => goTo(e, "home")}
             className="group flex items-center gap-3"
             aria-label="Back to top"
           >
-            {logoOk ? (
-              <span className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl border border-[#00d9ff]/40 bg-[#0c1218] shadow-[0_0_20px_rgba(0,217,255,0.2)] transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(0,217,255,0.4)]">
-                <img
-                  src="/logo.png"
-                  alt="Mahak logo"
-                  className="h-full w-full object-cover"
-                  onError={() => setLogoOk(false)}
-                />
-              </span>
-            ) : (
-              <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#00d9ff]/50 bg-[#0c1218] font-display text-lg font-bold text-[#00d9ff] shadow-[0_0_20px_rgba(0,217,255,0.25)] transition-transform duration-300 group-hover:scale-110">
+            <span className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl border border-[#00d9ff]/40 bg-[#0c1218] shadow-[0_0_20px_rgba(0,217,255,0.18)] transition-all duration-300 group-hover:scale-105 group-hover:border-[#00d9ff]/70 group-hover:shadow-[0_0_30px_rgba(0,217,255,0.45)]">
+              {/* inner glow */}
+              <span
+                className="pointer-events-none absolute inset-0 opacity-60"
+                style={{
+                  background:
+                    "radial-gradient(circle at 50% 30%, rgba(0,217,255,0.28), transparent 70%)",
+                }}
+              />
+              {/* rotating ring */}
+              <span className="pointer-events-none absolute -inset-[40%] animate-[spin_8s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_0%,rgba(0,217,255,0.7)_12%,transparent_28%,transparent_70%,rgba(56,189,248,0.6)_88%,transparent_100%)] opacity-40" />
+              {/* letter */}
+              <span className="relative z-10 font-display text-lg font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-white via-[#9be9ff] to-[#00d9ff] drop-shadow-[0_0_10px_rgba(0,217,255,0.55)]">
                 M
               </span>
-            )}
+            </span>
 
             <span className="font-display text-sm font-bold tracking-[0.2em] text-white">
-              DEVSPACE<span className="text-[#00d9ff] drop-shadow-[0_0_8px_rgba(0,217,255,0.6)]">.BY.MAHAK</span>
+              DEVSPACE
+              <span className="text-[#00d9ff] drop-shadow-[0_0_8px_rgba(0,217,255,0.6)]">
+                .BY.MAHAK
+              </span>
             </span>
           </a>
 
