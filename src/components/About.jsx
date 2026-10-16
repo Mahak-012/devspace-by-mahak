@@ -275,7 +275,7 @@ export default function About() {
                   {/* ✨ Image — subtle cyan duotone, hover pe vivid (BLACK & WHITE NAHI) */}
                   <div className="relative aspect-[4/5] w-full overflow-hidden">
                     <img
-                      src="/images/mahak-about.png"
+                      src="/images/mahak-about.webp"
                       alt="Mahak — Web Developer"
                       className="h-full w-full transform object-cover object-center transition-all duration-700 ease-out group-hover:scale-105"
                       style={{ filter: "saturate(0.8) contrast(1.1) brightness(0.95) hue-rotate(-10deg)" }}

@@ -577,7 +577,7 @@ function Hero() {
             <div className="absolute inset-6 rounded-[2.5rem] border border-white/15 bg-gradient-to-b from-[#06121c] to-[#030509] p-3 shadow-[0_0_60px_rgba(0,140,180,0.25)] overflow-hidden z-10">
               <div className="w-full h-full rounded-[2rem] overflow-hidden bg-zinc-950 relative border border-white/10">
                 <img
-                  src="/images/mahak-hero.png"
+                  src="/images/mahak-hero.webp"
                   alt="Mahak — Web Developer"
                   className="w-full h-full object-cover object-center"
                 />
