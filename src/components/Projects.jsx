@@ -5,97 +5,69 @@ import React, { useEffect, useRef, useState } from "react";
 const PROJECTS = [
   {
     id: 1,
+    title: "Sufian Home Patient Care Services Center",
+    category: "react",
+    tech: ["Next.js", "React", "Tailwind CSS", "SEO", "Bilingual EN/UR"],
+    description:
+      "A complete business website for a home nursing & patient care center — 14 service pages in Urdu + English, WhatsApp booking, click-to-call buttons, and Google Search Console verified.",
+    result:
+      "Delivered end-to-end — design, deployment, SEO & Google Search Console setup; services now discoverable on Google.",
+    emoji: "🏥",
+    liveLink: "https://sufian-home-take-care.vercel.app/",
+    githubLink: "#",
+    featured: true,
+    isRealClient: true,
+  },
+  {
+    id: 2,
     title: "E-Commerce Website",
     category: "react",
     tech: ["React", "Tailwind CSS", "Context API"],
-    description: "A fully responsive e-commerce platform with product filtering, cart functionality, and checkout process.",
+    description:
+      "A fully responsive e-commerce platform with product filtering, cart functionality, and checkout process.",
+    result: "Complete cart-to-checkout flow built with reusable components.",
     emoji: "🛒",
     liveLink: "https://e-commerce-app-eta-dun.vercel.app/",
     githubLink: "https://github.com/Mahak-012/e-commerce-app",
     featured: true,
   },
   {
-    id: 2,
+    id: 3,
     title: "STUDIO.CORE — Agency Build",
     category: "react",
     tech: ["React", "Tailwind CSS", "Canvas API"],
-    description: "A cinematic dark-themed agency landing platform featuring interactive particle constellations, aurora lighting systems, 3D tilt cards, and hand-crafted motion design — zero animation libraries.",
+    description:
+      "A cinematic dark-themed agency landing platform featuring interactive particle constellations, aurora lighting systems, 3D tilt cards, and hand-crafted motion design — zero animation libraries.",
+    result: "Cinematic motion design achieved with zero animation libraries.",
     emoji: "⚡",
     liveLink: "https://studio-core-agency-build.vercel.app/",
     githubLink: "https://github.com/Mahak-012/studio-core-agency-build",
     featured: true,
   },
   {
-    id: 3,
-    title: "Movie Search App",
-    category: "react",
-    tech: ["React", "REST API", "Tailwind CSS"],
-    description: "A dynamic app to search for movies, view details, and ratings using a real-time movie database API.",
-    emoji: "🎬",
-    liveLink: "https://movie-search-app-pi-neon.vercel.app/",
-    githubLink: "https://github.com/Mahak-012/movie-search-app",
-  },
-  {
     id: 4,
-    title: "Job Portal UI",
-    category: "react",
-    tech: ["React", "React Router", "Tailwind CSS"],
-    description: "A professional job portal application featuring job listings, detailed views, company profiles, and user dashboard.",
-    emoji: "💼",
-    liveLink: "https://job-portal-ui-six.vercel.app/",
-    githubLink: "https://github.com/Mahak-012/job-portal-ui",
-  },
-  {
-    id: 5,
-    title: "Institute Website",
-    category: "html-css",
-    tech: ["HTML5", "CSS3", "JavaScript"],
-    description: "A professional and responsive website for an educational institute with courses and contact details.",
-    emoji: "🏫",
-    liveLink: "https://techstem-technologies.vercel.app/",
-    githubLink: "https://github.com/Mahak-012/Techstem-Technologies",
-  },
-  {
-    id: 6,
-    title: "Online Course Landing Page",
-    category: "html-css",
-    tech: ["HTML5", "Tailwind CSS", "Responsive Design"],
-    description: "A modern, high-converting landing page for an online course with smooth scroll and appealing UI.",
-    emoji: "📚",
-    liveLink: "https://online-course-landing-page-eight.vercel.app/",
-    githubLink: "https://github.com/Mahak-012/online-course-landing-page",
-  },
-  {
-    id: 7,
-    title: "Dental Clinic Website",
-    category: "html-css",
-    tech: ["HTML5", "Tailwind CSS", "Responsive Design"],
-    description: "A professional, modern and fully responsive dental clinic website with service details and appointment booking.",
-    emoji: "🦷",
-    liveLink: "https://dental-clinic-seven-iota.vercel.app/",
-    githubLink: "https://github.com/Mahak-012/dental-clinic",
-  },
-  {
-    id: 8,
     title: "Veylora Fine Dining",
     category: "react",
     tech: ["React", "Tailwind CSS", "Responsive Design"],
-    description: "A modern, elegant, and fully responsive web application for a luxury fine dining restaurant featuring a bento grid, interactive menu, and reservation system.",
+    description:
+      "A modern, elegant, and fully responsive web application for a luxury fine dining restaurant featuring a bento grid, interactive menu, and reservation system.",
+    result: "Luxury bento-grid UI with interactive menu and reservation flow.",
     emoji: "🍷",
     liveLink: "https://veylora-the-fine-dining.vercel.app/",
     githubLink: "https://github.com/Mahak-012/Veylora-the-fine-dining",
     featured: true,
   },
   {
-    id: 9,
-    title: "To Do App (Mobile)",
-    category: "react",
-    tech: ["React Native", "Expo", "AsyncStorage"],
-    description: "A cross-platform mobile task manager with categories, stats, and theme toggle. Available on GitHub for mobile testing.",
-    emoji: "📱",
-    liveLink: "#",
-    githubLink: "https://github.com/Mahak-012/My-TO-DO-App",
-    isMobile: true,
+    id: 5,
+    title: "Dental Clinic Website",
+    category: "html-css",
+    tech: ["HTML5", "Tailwind CSS", "Responsive Design"],
+    description:
+      "A professional, modern and fully responsive dental clinic website with service details and appointment booking.",
+    result: "Fast, accessible healthcare landing — appointment-booking focused.",
+    emoji: "🦷",
+    liveLink: "https://dental-clinic-seven-iota.vercel.app/",
+    githubLink: "https://github.com/Mahak-012/dental-clinic",
   },
 ];
 
@@ -103,7 +75,6 @@ const FILTERS = [
   { id: "all", label: "All Projects" },
   { id: "react", label: "React" },
   { id: "html-css", label: "HTML/CSS" },
-  { id: "js", label: "JavaScript" },
 ];
 
 const REDUCED_MOTION =
@@ -122,7 +93,6 @@ const getDomain = (url) => {
 
 const matchesFilter = (p, filter) => {
   if (filter === "all") return true;
-  if (filter === "js") return p.tech.some((t) => t.toLowerCase().includes("javascript"));
   return p.category === filter;
 };
 
@@ -187,7 +157,7 @@ const ProjectCard = ({ project, index }) => {
       ref={ref}
       className={`transition-all duration-700 ease-out ${
         inView ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
-      }`}
+      } ${project.isRealClient ? "md:col-span-2 lg:col-span-2" : ""}`}
       style={{ transitionDelay: REDUCED_MOTION ? "0s" : `${(index % 3) * 110}ms` }}
     >
       <div
@@ -195,14 +165,24 @@ const ProjectCard = ({ project, index }) => {
         className="proj-card group relative h-full rounded-2xl p-px transition-shadow duration-500 hover:shadow-2xl hover:shadow-cyan-950/60"
       >
         {/* Gradient border */}
-        <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-b from-[#00d9ff]/30 via-[#00d9ff]/[0.07] to-transparent opacity-50 transition-opacity duration-500 group-hover:opacity-100" />
+        <div
+          className={`pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-b transition-opacity duration-500 group-hover:opacity-100 ${
+            project.isRealClient
+              ? "from-amber-300/40 via-amber-300/[0.08] to-transparent opacity-70"
+              : "from-[#00d9ff]/30 via-[#00d9ff]/[0.07] to-transparent opacity-50"
+          }`}
+        />
 
         <div className="proj-card-inner relative flex h-full flex-col overflow-hidden rounded-2xl bg-[#04121a]">
           {/* Cursor spotlight */}
           <div className="proj-spotlight pointer-events-none absolute inset-0 z-20 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
           {/* ─── Preview ─── */}
-          <div className="relative h-52 overflow-hidden border-b border-[#00d9ff]/10">
+          <div
+            className={`relative overflow-hidden border-b border-[#00d9ff]/10 ${
+              project.isRealClient ? "h-64 md:h-72" : "h-52"
+            }`}
+          >
             {/* Browser chrome */}
             <div className="relative z-10 flex h-8 items-center gap-2 border-b border-[#00d9ff]/10 bg-[#06121c]/60 px-3 backdrop-blur">
               <div className="flex gap-1.5">
@@ -220,13 +200,15 @@ const ProjectCard = ({ project, index }) => {
                 </span>
               </div>
               {/* LIVE pulse */}
-              <span className="flex shrink-0 items-center gap-1 font-mono text-[8px] tracking-widest text-cyan-400">
-                <span className="relative flex h-1.5 w-1.5">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-60" />
-                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-cyan-400" />
+              {project.liveLink !== "#" && (
+                <span className="flex shrink-0 items-center gap-1 font-mono text-[8px] tracking-widest text-cyan-400">
+                  <span className="relative flex h-1.5 w-1.5">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-60" />
+                    <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-cyan-400" />
+                  </span>
+                  LIVE
                 </span>
-                LIVE
-              </span>
+              )}
             </div>
 
             {/* Preview area — wireframe + icon */}
@@ -289,21 +271,20 @@ const ProjectCard = ({ project, index }) => {
                   {project.liveLink !== "#" ? "LIVE DEPLOYMENT" : "SOURCE CODE"}
                 </span>
               </div>
-
-              {/* Mobile badge */}
-              {project.isMobile && (
-                <div className="absolute right-3 top-3 z-20 flex items-center gap-1.5 rounded-full border border-[#00d9ff]/30 bg-[#04121a]/90 px-2.5 py-1 font-mono text-[9px] tracking-widest text-cyan-400 backdrop-blur">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-2.5 w-2.5">
-                    <rect x="6" y="2" width="12" height="20" rx="2" />
-                    <path d="M12 18h.01" />
-                  </svg>
-                  MOBILE APP
-                </div>
-              )}
             </div>
 
+            {/* REAL CLIENT badge (Sufian card) */}
+            {project.isRealClient && (
+              <div className="absolute left-3 top-11 z-20 flex items-center gap-1.5 rounded-full bg-gradient-to-r from-amber-400 to-yellow-300 px-2.5 py-1 text-[9px] font-bold tracking-widest text-[#030509] shadow-lg shadow-amber-500/40">
+                <svg viewBox="0 0 24 24" fill="currentColor" className="h-2.5 w-2.5">
+                  <path d="M12 2l2.9 6.26L21.5 9.27l-4.75 4.63 1.12 6.53L12 17.31l-5.87 3.12 1.12-6.53L2.5 9.27l6.6-1.01L12 2z" />
+                </svg>
+                REAL CLIENT
+              </div>
+            )}
+
             {/* Featured badge */}
-            {project.featured && (
+            {project.featured && !project.isRealClient && (
               <div className="absolute left-3 top-11 z-20 flex items-center gap-1.5 rounded-full bg-gradient-to-r from-cyan-400 to-sky-300 px-2.5 py-1 text-[9px] font-bold tracking-widest text-[#030509] shadow-lg shadow-cyan-500/40">
                 <svg viewBox="0 0 24 24" fill="currentColor" className="h-2.5 w-2.5">
                   <path d="M12 2l2.9 6.26L21.5 9.27l-4.75 4.63 1.12 6.53L12 17.31l-5.87 3.12 1.12-6.53L2.5 9.27l6.6-1.01L12 2z" />
@@ -327,9 +308,19 @@ const ProjectCard = ({ project, index }) => {
               {project.title}
             </h3>
 
-            <p className="mt-2 mb-4 flex-1 text-xs leading-relaxed text-zinc-400 sm:text-sm">
+            <p className="mt-2 mb-3 flex-1 text-xs leading-relaxed text-zinc-400 sm:text-sm">
               {project.description}
             </p>
+
+            {/* Result strip */}
+            {project.result && (
+              <div className="mb-4 flex items-start gap-2 rounded-r-md border-l-2 border-[#00d9ff]/60 bg-[#00d9ff]/[0.05] px-3 py-2">
+                <span className="text-[10px] leading-5">✅</span>
+                <p className="text-[11px] leading-relaxed text-cyan-100/85 sm:text-xs">
+                  {project.result}
+                </p>
+              </div>
+            )}
 
             {/* Tech tags */}
             <div className="mb-5 flex flex-wrap gap-2">
@@ -352,22 +343,25 @@ const ProjectCard = ({ project, index }) => {
                 onClick={(e) => {
                   if (project.liveLink === "#") {
                     e.preventDefault();
-                    alert("📱 This is a Mobile App! Available for testing on mobile devices. Check the GitHub repo for instructions.");
                   }
                 }}
                 className="proj-btn relative flex-1 overflow-hidden rounded-lg py-1.5 text-center text-xs font-semibold text-white sm:text-sm"
               >
                 <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full skew-x-[-12deg]" />
-                <span className="relative">Live Demo →</span>
+                <span className="relative">
+                  {project.isRealClient ? "Visit Live Site →" : "Live Demo →"}
+                </span>
               </a>
-              <a
-                href={project.githubLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-lg border border-[#00d9ff]/30 bg-[#00d9ff]/[0.05] px-3 py-1.5 text-xs font-semibold text-cyan-400 transition-all duration-300 hover:scale-105 hover:border-[#00d9ff]/60 hover:bg-[#00d9ff]/10 hover:text-cyan-300 sm:text-sm"
-              >
-                GitHub
-              </a>
+              {project.githubLink && project.githubLink !== "#" && (
+                <a
+                  href={project.githubLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-lg border border-[#00d9ff]/30 bg-[#00d9ff]/[0.05] px-3 py-1.5 text-xs font-semibold text-cyan-400 transition-all duration-300 hover:scale-105 hover:border-[#00d9ff]/60 hover:bg-[#00d9ff]/10 hover:text-cyan-300 sm:text-sm"
+                >
+                  GitHub
+                </a>
+              )}
             </div>
           </div>
         </div>
@@ -497,7 +491,7 @@ function Projects() {
           <div className="mt-2 h-1 w-20 rounded-full bg-gradient-to-r from-[#00d9ff] to-sky-400 shadow-[0_0_14px_rgba(0,217,255,0.6)]" />
 
           <p className="mt-4 max-w-2xl text-sm text-zinc-400 sm:text-base">
-            Real, deployed, production-grade builds —{" "}
+            Real client project & deployed production builds —{" "}
             <span className="text-cyan-300">hover any card</span> to peek inside 👀
           </p>
         </div>
@@ -556,8 +550,8 @@ function Projects() {
         <div className="mx-auto mt-14 grid max-w-2xl grid-cols-3 divide-x divide-[#00d9ff]/10 rounded-2xl border border-[#00d9ff]/10 bg-[#00d9ff]/[0.03] py-5 text-center backdrop-blur-sm">
           {[
             { v: `${PROJECTS.length}`, l: "Deployed Builds" },
+            { v: "1", l: "Real Client" },
             { v: "100%", l: "Responsive" },
-            { v: "24/7", l: "Live on Vercel" },
           ].map((s) => (
             <div key={s.l}>
               <div className="bg-gradient-to-b from-white to-cyan-300/70 bg-clip-text text-xl font-black text-transparent sm:text-2xl">
